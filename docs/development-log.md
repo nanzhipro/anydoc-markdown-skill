@@ -27,3 +27,5 @@
 
 - First native run passed formatting/Clippy and 19 unit tests, but the no-replace publication regression failed: Rust std::fs::rename also replaced an existing empty destination directory on that Windows runner. This disproved the earlier source-only assumption.
 - Replaced that Windows branch with MoveFileExW flags=0 (no REPLACE_EXISTING), with checked NUL-terminated UTF-16 buffers and a narrowly documented FFI call. The same existing-empty-directory regression is retained. A new native run must pass before release.
+
+- Second native Windows run passed all 20 unit tests, including the corrected no-replace behavior, then caught a fixture SHA mismatch in the 18-document integration test. Recreating Git's LF-to-CRLF conversion produced the exact observed mismatch. Added .gitattributes to keep source-document fixture bytes binary and repository text LF; this fixes checkout behavior without weakening the original-byte assertion or changing upstream fixture hashes.

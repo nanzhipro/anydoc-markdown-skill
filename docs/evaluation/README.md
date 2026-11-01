@@ -7,9 +7,10 @@ Evaluated with the user's installed Plugin Eval plugin (installation package 0.1
 | [Initial](before/plugin-eval.json) | 95/A | Description lacked an explicit use-when trigger; Rust helper was still being built |
 | [Development tree](after/plugin-eval.json) | 91/B | Cargo target artifacts inflated deferred size; retained as actual intermediate result |
 | [Clean source](after-clean-source/plugin-eval.json) | 95/A | All source/tests/fixtures retained; only generated build/cache content excluded |
-| [Final source](final-result/plugin-eval.json) | **95/A** | After trigger clarification, runtime bug fixes and source-relative-link warning |
+| [Pre-native source](final-result/plugin-eval.json) | 95/A | After trigger clarification and source-relative-link warning |
+| [Release source](release-final/plugin-eval.json) | **95/A** | After the native Windows no-replace correction |
 
-Final [official Agent Skills validation](final-result/agent-skills-validation.json) passed. [Before/after comparison](final-compare.md) and [final source fingerprints](final-source-inventory.json) retain the conditions. The final source tree SHA-256 is 7d2381f98b42441d4477142fd87a4af71c1f0ab63f40ee4a1c42963f880e9061.
+Final [official Agent Skills validation](release-final/agent-skills-validation.json) passed. [Before/after comparison](final-compare.md) and [final source fingerprints](release-final/source-inventory.json) retain the conditions. The final source tree SHA-256 is e9056d50ba85471bd32920c76c9af3217f9362d0120d31d9180613d87b6632cf.
 
 The remaining warning flags `tests/fixtures/README.md`; it is intentionally retained because it explains licensing and how to select actual document inputs. No coverage artifact was supplied; no synthetic coverage or usage measurements were fabricated. Static token figures are estimates.
 
