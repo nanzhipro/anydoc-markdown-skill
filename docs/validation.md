@@ -10,7 +10,7 @@ The installed Plugin Eval only analyzes Python/TypeScript helpers. This project'
 
 ## Public corpus
 
-An expanded local upstream corpus contains 78 documents across 14 extensions: DOC, DOCX, PPT, PPTX, XLS, XLSX, XLSB, ODT, ODS, ODP, RTF, EPUB, CSV and PDF. Of these, 64 expected readable cases yielded readable Markdown, 12 malformed/resource-abuse cases failed in a controlled way, and 2 scanned-PDF cases returned needs_ocr. Preserved originals matched all 78 input hashes. Twenty extracted asset payloads (100,026 bytes) had no missing local asset links or mismatched ZIP payload bytes.
+An expanded local upstream corpus contains 78 documents across 14 extensions: DOC, DOCX, PPT, PPTX, XLS, XLSX, XLSB, ODT, ODS, ODP, RTF, EPUB, CSV and PDF. Of these, 64 expected readable cases yielded readable Markdown, 12 malformed/resource-abuse cases failed in a controlled way, and 2 scanned-PDF cases returned needs_ocr. Preserved originals matched all 78 input hashes. Twenty extracted asset payloads (100,026 bytes) had no missing generated source/asset links or mismatched ZIP payload bytes. Eight authored source-relative links target files not copied into the bundles; seven documents now explicitly report that limitation.
 
 Sixty readable cases had upstream Markdown snapshots: 59 had complete normalized line coverage. The PDF case differed in a heading/line grouping and bidirectional-script ordering; its independent character 4-gram recall was 97.1%. These are diagnostic comparisons, not a general semantic accuracy score. The lockfile resolves pdf-inspector 1.25.2, while the upstream release's historical lockfile used 1.14.2; both satisfy anydoc 0.2.4's declared dependency range.
 
@@ -18,13 +18,13 @@ The committed redistributable subset contains 18 attributed MIT fixtures coverin
 
 ## Private real documents
 
-The user authorized local Downloads testing. Names, source paths, individual source hashes, extracted text and originals are not committed. A separate, deduplicated corpus contains 97 documents from files and ZIP members (DOCX, CSV, PDF, EPUB); 95 generated readable Markdown (93 partial, 2 converted), while 2 truncated/corrupt PDFs failed in a controlled way. All 97 retained originals matched their input bytes, 271 extracted assets matched their source payloads, and 291 relative links resolved. The 82 original direct Downloads files were rehashed with no changes.
+The user authorized local Downloads testing. Names, source paths, individual source hashes, extracted text and originals are not committed. A separate, deduplicated corpus contains 97 documents from files and ZIP members (DOCX, CSV, PDF, EPUB); 95 generated readable Markdown (93 partial, 2 converted), while 2 truncated/corrupt PDFs failed in a controlled way. All 97 retained originals matched their input bytes, 271 extracted assets matched their source payloads, and 291 relative links resolved. The 82 original direct Downloads files were rehashed with no changes. A final rerun of all 175 public/private inputs after the runtime fixes preserved every body byte (excluding frontmatter status), original copy and extracted asset; previously recorded semantic diagnostics therefore apply to the unchanged bodies.
 
 Independent checks retained all CSV cell values and all DOCX alphanumeric character multisets in this corpus. EPUB character-multiset recall ranged from 99.49% to 100%. For 23 readable PDFs, 10 had recall below 99% against independent extractors: minimum 89.0% versus pypdf, 91.6% versus PDFKit, with median 99.93%. These lexical differences require review and do not establish visual or semantic significance. PDF outputs remain partial. See [machine-readable aggregate evidence](corpus-validation.json).
 
 ## Native platform evidence
 
-The GitHub Actions workflow runs formatting, Clippy, tests and a release build on macOS ARM64, macOS Intel and Windows. Its live run, final commit and artifact links are recorded after execution. A workflow definition alone is not a passed platform test.
+The GitHub Actions workflow runs formatting, Clippy, 22 native tests and a release build on macOS ARM64, macOS Intel and Windows. [Native run](https://github.com/nanzhipro/anydoc-markdown-skill/actions/runs/41266501082) tests implementation commit `53962172a87369f88ff254f490d9ff552ba29cb1`. Final native outcomes are recorded after execution. A workflow definition alone is not a passed platform test.
 
 ## Limits
 

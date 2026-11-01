@@ -27,6 +27,57 @@
       "entry_count": 78,
       "convert_exit": 2,
       "verify_exit": 0,
+      "convert_seconds": 0.45,
+      "verify_seconds": 0.085,
+      "status_counts": {
+        "error": 12,
+        "partial": 54,
+        "converted": 10,
+        "needs_ocr": 2
+      },
+      "extension_counts": {
+        "csv": 4,
+        "doc": 5,
+        "docx": 20,
+        "epub": 4,
+        "odp": 1,
+        "ods": 6,
+        "odt": 7,
+        "pdf": 3,
+        "ppt": 5,
+        "pptx": 8,
+        "rtf": 7,
+        "xls": 2,
+        "xlsb": 2,
+        "xlsx": 4
+      },
+      "asset_files": 20,
+      "asset_bytes": 100026,
+      "source_sha256_mismatches": 0,
+      "retained_original_mismatches": 0,
+      "normalized_markdown_comparisons": 78,
+      "normalized_markdown_changes": 0,
+      "source_or_asset_artifact_changes": 0,
+      "relative_links": 111,
+      "relative_links_missing": 8,
+      "asset_links_missing": 0,
+      "relative_link_integrity_changes": 0,
+      "source_relative_link_warning_documents": 7,
+      "status_changes": {},
+      "expected_outcome_mismatches": 0,
+      "generated_artifact_links_missing": 0,
+      "original_source_relative_hyperlink_targets_missing": 8,
+      "link_policy_notice": "Generated source/assets links must resolve. Original source-relative hyperlinks are preserved; uncopied original targets may not resolve and are reported by conversion warnings. The final recheck found no link-integrity changes from the previous run."
+    },
+    "successful_outputs_with_snapshots": 60,
+    "snapshot_normalized_line_coverage_full": 59,
+    "snapshot_difference_notice": "One text PDF differs in grouping, note placement, and script ordering because the resolved PDF backend is 1.25.2 while the upstream tag snapshot used 1.14.2. 24/25 normalized lines match; an independent pypdf 4-gram recall is 97.1%.",
+    "previous_validation_summary": {
+      "kind": "official",
+      "input_count": 78,
+      "entry_count": 78,
+      "convert_exit": 2,
+      "verify_exit": 0,
       "elapsed_seconds": 0.823,
       "status_counts": {
         "error": 12,
@@ -60,9 +111,7 @@
       "expected_outcome_mismatches": 0,
       "empty_markdown_for_ok": 0
     },
-    "successful_outputs_with_snapshots": 60,
-    "snapshot_normalized_line_coverage_full": 59,
-    "snapshot_difference_notice": "One text PDF differs in grouping, note placement, and script ordering because the resolved PDF backend is 1.25.2 while the upstream tag snapshot used 1.14.2. 24/25 normalized lines match; an independent pypdf 4-gram recall is 97.1%."
+    "summary_scope": "Final reconversion and artifact integrity recheck. Previously reported lexical/snapshot metrics were retained from the preceding run; see final_recheck for byte-equivalence evidence."
   },
   "local_document_validation": {
     "source_inventory": {
@@ -85,7 +134,8 @@
       "entry_count": 97,
       "convert_exit": 2,
       "verify_exit": 0,
-      "elapsed_seconds": 72.045,
+      "convert_seconds": 53.775,
+      "verify_seconds": 5.955,
       "status_counts": {
         "partial": 93,
         "error": 2,
@@ -99,13 +149,21 @@
       },
       "asset_files": 271,
       "asset_bytes": 41559336,
-      "missing_asset_links": 0,
-      "asset_payloads_not_in_source": 0,
-      "source_resource_payloads_missing": 0,
-      "sha_mismatches": 0,
+      "source_sha256_mismatches": 0,
       "retained_original_mismatches": 0,
+      "normalized_markdown_comparisons": 97,
+      "normalized_markdown_changes": 0,
+      "source_or_asset_artifact_changes": 0,
+      "relative_links": 291,
+      "relative_links_missing": 0,
+      "asset_links_missing": 0,
+      "relative_link_integrity_changes": 0,
+      "source_relative_link_warning_documents": 0,
+      "status_changes": {},
       "expected_outcome_mismatches": 0,
-      "empty_markdown_for_ok": 0
+      "generated_artifact_links_missing": 0,
+      "original_source_relative_hyperlink_targets_missing": 0,
+      "link_policy_notice": "Generated source/assets links must resolve. Original source-relative hyperlinks are preserved; uncopied original targets may not resolve and are reported by conversion warnings. The final recheck found no link-integrity changes from the previous run."
     },
     "relative_links": 291,
     "missing_relative_links": 0,
@@ -161,12 +219,140 @@
       "original_document_files_rehashed": 82,
       "original_document_byte_changes": 0,
       "archive_size_changes": 0
-    }
+    },
+    "previous_validation_summary": {
+      "kind": "private",
+      "input_count": 97,
+      "entry_count": 97,
+      "convert_exit": 2,
+      "verify_exit": 0,
+      "elapsed_seconds": 72.045,
+      "status_counts": {
+        "partial": 93,
+        "error": 2,
+        "converted": 2
+      },
+      "extension_counts": {
+        "csv": 13,
+        "docx": 56,
+        "epub": 3,
+        "pdf": 25
+      },
+      "asset_files": 271,
+      "asset_bytes": 41559336,
+      "missing_asset_links": 0,
+      "asset_payloads_not_in_source": 0,
+      "source_resource_payloads_missing": 0,
+      "sha_mismatches": 0,
+      "retained_original_mismatches": 0,
+      "expected_outcome_mismatches": 0,
+      "empty_markdown_for_ok": 0
+    },
+    "summary_scope": "Final reconversion and artifact integrity recheck. Previously reported lexical/snapshot metrics were retained from the preceding run; see final_recheck for byte-equivalence evidence."
   },
   "limits": [
     "Conversion success and artifact integrity do not establish semantic fidelity.",
     "PDF text differs from independent extraction: 10 of 23 readable PDFs have character multiset recall below 99%; minimum is 89.0% versus pypdf and 91.6% versus PDFKit. These lexical diagnostics do not establish the visual significance or reading order of differences.",
     "PDF images and attachments are not extracted by the current anydoc PDF API.",
     "Spreadsheet formulas, presentation layout, merged-cell geometry, unsupported RTF pictures, and embedded application object interpretation retain the converter limitations reported in per-document reports."
-  ]
+  ],
+  "final_recheck": {
+    "completed_at": "2026-11-01T02:46:08.703895+00:00",
+    "scope": "Final binary reconverted the same fixed 78 official and 97 private inputs. Repeated convert, verify, source/asset hash checks, and link integrity checks only. Expensive pypdf/PDFKit extraction and semantic diagnostics were not repeated.",
+    "markdown_comparison": "Every document.md was compared byte for byte after removing only the frontmatter conversion_status line. Source and asset files were compared by relative path and SHA-256.",
+    "results": {
+      "official": {
+        "kind": "official",
+        "input_count": 78,
+        "entry_count": 78,
+        "convert_exit": 2,
+        "verify_exit": 0,
+        "convert_seconds": 0.45,
+        "verify_seconds": 0.085,
+        "status_counts": {
+          "error": 12,
+          "partial": 54,
+          "converted": 10,
+          "needs_ocr": 2
+        },
+        "extension_counts": {
+          "csv": 4,
+          "doc": 5,
+          "docx": 20,
+          "epub": 4,
+          "odp": 1,
+          "ods": 6,
+          "odt": 7,
+          "pdf": 3,
+          "ppt": 5,
+          "pptx": 8,
+          "rtf": 7,
+          "xls": 2,
+          "xlsb": 2,
+          "xlsx": 4
+        },
+        "asset_files": 20,
+        "asset_bytes": 100026,
+        "source_sha256_mismatches": 0,
+        "retained_original_mismatches": 0,
+        "normalized_markdown_comparisons": 78,
+        "normalized_markdown_changes": 0,
+        "source_or_asset_artifact_changes": 0,
+        "relative_links": 111,
+        "relative_links_missing": 8,
+        "asset_links_missing": 0,
+        "relative_link_integrity_changes": 0,
+        "source_relative_link_warning_documents": 7,
+        "status_changes": {},
+        "expected_outcome_mismatches": 0,
+        "generated_artifact_links_missing": 0,
+        "original_source_relative_hyperlink_targets_missing": 8,
+        "link_policy_notice": "Generated source/assets links must resolve. Original source-relative hyperlinks are preserved; uncopied original targets may not resolve and are reported by conversion warnings. The final recheck found no link-integrity changes from the previous run."
+      },
+      "private": {
+        "kind": "private",
+        "input_count": 97,
+        "entry_count": 97,
+        "convert_exit": 2,
+        "verify_exit": 0,
+        "convert_seconds": 53.775,
+        "verify_seconds": 5.955,
+        "status_counts": {
+          "partial": 93,
+          "error": 2,
+          "converted": 2
+        },
+        "extension_counts": {
+          "csv": 13,
+          "docx": 56,
+          "epub": 3,
+          "pdf": 25
+        },
+        "asset_files": 271,
+        "asset_bytes": 41559336,
+        "source_sha256_mismatches": 0,
+        "retained_original_mismatches": 0,
+        "normalized_markdown_comparisons": 97,
+        "normalized_markdown_changes": 0,
+        "source_or_asset_artifact_changes": 0,
+        "relative_links": 291,
+        "relative_links_missing": 0,
+        "asset_links_missing": 0,
+        "relative_link_integrity_changes": 0,
+        "source_relative_link_warning_documents": 0,
+        "status_changes": {},
+        "expected_outcome_mismatches": 0,
+        "generated_artifact_links_missing": 0,
+        "original_source_relative_hyperlink_targets_missing": 0,
+        "link_policy_notice": "Generated source/assets links must resolve. Original source-relative hyperlinks are preserved; uncopied original targets may not resolve and are reported by conversion warnings. The final recheck found no link-integrity changes from the previous run."
+      }
+    },
+    "semantic_evidence_scope": "Earlier lexical and snapshot diagnostics remain applicable to final Markdown only where normalized Markdown and source/asset equality checks passed. These diagnostics remain lexical evidence and do not establish semantic fidelity.",
+    "original_source_recheck": {
+      "original_document_files_rehashed": 82,
+      "original_document_byte_changes": 0,
+      "archive_size_changes": 0
+    },
+    "preserved_lexical_evidence_notice": "The previous pypdf/PDFKit and OOXML/CSV/EPUB lexical diagnostics were not rerun. All 175 normalized Markdown documents and all retained source/asset files are byte-identical to their previous outputs, so their previously measured lexical evidence applies unchanged. Status and report warnings are assessed from the final run."
+  }
 }

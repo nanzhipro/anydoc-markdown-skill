@@ -121,8 +121,25 @@ fn publish_directory(source: &Path, destination: &Path) -> io::Result<()> {
     }
     #[cfg(windows)]
     {
-        // MoveFileEx does not replace an existing destination directory.
-        fs::rename(source, destination)
+        use std::os::windows::ffi::OsStrExt;
+        let source_wide: Vec<u16> = source.as_os_str().encode_wide().chain(Some(0)).collect();
+        let destination_wide: Vec<u16> =
+            destination.as_os_str().encode_wide().chain(Some(0)).collect();
+        if source_wide[..source_wide.len() - 1].contains(&0)
+            || destination_wide[..destination_wide.len() - 1].contains(&0)
+        {
+            return Err(error("NUL byte in publication path"));
+        }
+        // SAFETY: both buffers are NUL-terminated UTF-16 and remain alive for
+        // this synchronous call. Flags=0 deliberately omits REPLACE_EXISTING.
+        let moved = unsafe {
+            windows_sys::Win32::Storage::FileSystem::MoveFileExW(
+                source_wide.as_ptr(),
+                destination_wide.as_ptr(),
+                0,
+            )
+        };
+        if moved == 0 { Err(io::Error::last_os_error()) } else { Ok(()) }
     }
     #[cfg(not(any(target_os = "macos", target_os = "linux", windows)))]
     {
