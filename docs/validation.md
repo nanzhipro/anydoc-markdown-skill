@@ -24,7 +24,10 @@ Independent checks retained all CSV cell values and all DOCX alphanumeric charac
 
 ## Native platform evidence
 
-The GitHub Actions workflow runs formatting, Clippy, 22 native tests and a release build on macOS ARM64, macOS Intel and Windows. [Native run](https://github.com/nanzhipro/anydoc-markdown-skill/actions/runs/41266501082) tests implementation commit `53962172a87369f88ff254f490d9ff552ba29cb1`. Final native outcomes are recorded after execution. A workflow definition alone is not a passed platform test.
+Native validation **passed on all three runners**: Windows x64, macOS ARM64, and macOS Intel. Formatting, Clippy with warnings denied, all 22 native regression/integration tests, release compilation, and CLI execution passed. [Successful native run](https://github.com/nanzhipro/anydoc-markdown-skill/actions/runs/41267043173) validates implementation commit `71121dc708d0c886d246f41232b85d21c6eb969c`; [machine-readable jobs](native-ci.json) and [native build artifacts](native-artifacts.json) preserve results.
+
+Earlier native runs exposed Windows replacement behavior and Git line-ending conversion. The no-replace API and fixture checkout rules were fixed, retaining the original regression and SHA assertions. The final source was also checked out with core.autocrlf=true; all 18 fixture hashes matched. Final documentation-only updates leave the tested skill and CI source unchanged.
+
 
 ## Limits
 

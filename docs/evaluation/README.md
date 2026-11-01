@@ -8,9 +8,10 @@ Evaluated with the user's installed Plugin Eval plugin (installation package 0.1
 | [Development tree](after/plugin-eval.json) | 91/B | Cargo target artifacts inflated deferred size; retained as actual intermediate result |
 | [Clean source](after-clean-source/plugin-eval.json) | 95/A | All source/tests/fixtures retained; only generated build/cache content excluded |
 | [Pre-native source](final-result/plugin-eval.json) | 95/A | After trigger clarification and source-relative-link warning |
-| [Release source](release-final/plugin-eval.json) | **95/A** | After the native Windows no-replace correction |
+| [Native-fix source](release-final/plugin-eval.json) | 95/A | After the native Windows no-replace correction |
+| [Published checkout](published-source/plugin-eval.json) | **95/A** | Final 60-file source with fixture byte-preservation rules; core.autocrlf=true checkout tested |
 
-Final [official Agent Skills validation](release-final/agent-skills-validation.json) passed. [Before/after comparison](final-compare.md) and [final source fingerprints](release-final/source-inventory.json) retain the conditions. The final source tree SHA-256 is e9056d50ba85471bd32920c76c9af3217f9362d0120d31d9180613d87b6632cf.
+Final [official Agent Skills validation](published-source/agent-skills-validation.json) passed. [Before/after comparison](final-compare.md) and [final source fingerprints](published-source/source-inventory.json) retain the conditions. The final 60-file inventory is tied to commit 71121dc708d0c886d246f41232b85d21c6eb969c; all 18 original fixture hashes also match after a core.autocrlf=true checkout. Earlier 59-file inventories predate the fixture-level .gitattributes addition.
 
 The remaining warning flags `tests/fixtures/README.md`; it is intentionally retained because it explains licensing and how to select actual document inputs. No coverage artifact was supplied; no synthetic coverage or usage measurements were fabricated. Static token figures are estimates.
 

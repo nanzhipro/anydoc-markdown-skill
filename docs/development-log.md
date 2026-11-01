@@ -29,3 +29,11 @@
 - Replaced that Windows branch with MoveFileExW flags=0 (no REPLACE_EXISTING), with checked NUL-terminated UTF-16 buffers and a narrowly documented FFI call. The same existing-empty-directory regression is retained. A new native run must pass before release.
 
 - Second native Windows run passed all 20 unit tests, including the corrected no-replace behavior, then caught a fixture SHA mismatch in the 18-document integration test. Recreating Git's LF-to-CRLF conversion produced the exact observed mismatch. Added .gitattributes to keep source-document fixture bytes binary and repository text LF; this fixes checkout behavior without weakening the original-byte assertion or changing upstream fixture hashes.
+
+- Reproduced the final source from Git with core.autocrlf=true: all 18 fixture SHA-256 values still matched. Re-evaluated that complete 60-file source checkout: Plugin Eval 95/A and official Agent Skills validation passed; no test/resource was removed.
+
+## Release verification
+
+- Native run 41267043173 passed on Windows x64, macOS ARM64 and macOS Intel: 22 tests per runner, fmt, Clippy -D warnings, release build and CLI formats execution. Tested implementation commit: 71121dc708d0c886d246f41232b85d21c6eb969c.
+- Final 60-file source distribution scores 95/A in Plugin Eval and passes official Agent Skills validation. Package is assembled from tracked source files, excludes build/Finder/private artifacts, and is checked byte-for-byte before upload.
+- v0.1.0 release contains the self-contained source Skill ZIP plus SHA256SUMS under MIT. Public evidence records actual failures and fixes, aggregate corpus metrics, independent forward execution, and native job results.
